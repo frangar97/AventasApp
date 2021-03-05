@@ -13,6 +13,10 @@ export class AppComponent {
       titulo: "Pineo",
       ruta: "/pineo"
     },
+    {
+      titulo: "Check in/ Check out",
+      ruta: "/check"
+    },
   ];
 
 }

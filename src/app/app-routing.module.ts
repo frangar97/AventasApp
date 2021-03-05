@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,10 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'pineo',
-    loadChildren: () => import('./geoposicion/pages/pineo/pineo.module').then( m => m.PineoPageModule)
-  },  {
+    loadChildren: () => import('./geoposicion/pages/pineo/pineo.module').then(m => m.PineoPageModule)
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./Login/login/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./Login/login/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'check',
+    loadChildren: () => import('./agenda/pages/check/check.module').then(m => m.CheckPageModule)
   },
 
 ];
