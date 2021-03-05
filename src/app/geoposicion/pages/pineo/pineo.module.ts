@@ -8,6 +8,7 @@ import { PineoPageRoutingModule } from './pineo-routing.module';
 
 import { PineoPage } from './pineo.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PineoService } from '../../services/pineo.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     PineoPageRoutingModule,
     SharedModule
   ],
-  declarations: [PineoPage]
+  declarations: [PineoPage],
+  providers: [PineoService]
 })
 export class PineoPageModule { }
