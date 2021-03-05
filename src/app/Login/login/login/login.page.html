@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="handleSubmit()">
+    <ion-item lines="full">
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input type="text" required name="UserAccount" [(ngModel)]="credential.UserAccount"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" required  name="Password" [(ngModel)]="credential.Password"></ion-input>
+    </ion-item>
+    <div class="error">{{ credential.Message }}</div>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Iniciar Sesion</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

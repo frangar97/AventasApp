@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'pineo',
     loadChildren: () => import('./geoposicion/pages/pineo/pineo.module').then( m => m.PineoPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./Login/login/login/login.module').then( m => m.LoginPageModule)
   },
+
 ];
 
 @NgModule({
