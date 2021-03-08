@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Clientes } from '../../models/Clientes';
 import { Login } from '../../models/Login';
 import { LoginService } from '../../Services/login.service';
+import { SQLService } from '../../Services/sql.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,11 @@ export class LoginPage implements OnInit {
     Password:'',
     Message:'',
   }
-  Login:Login[] = []
+  Clientes: Clientes[] = []
   constructor(
     private loginService:LoginService,
-    private _router: Router) { }
+    private _router: Router,
+    private SqlService: SQLService) { }
 
   ngOnInit() {
   }

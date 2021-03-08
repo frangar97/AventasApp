@@ -1,5 +1,7 @@
 {
   "name": "Aventasapp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
