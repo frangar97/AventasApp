@@ -18,7 +18,7 @@ export class LoginService {
     return this.http.post<{Message:string}>(`${environment.api}/api/authentication`, login).toPromise();
   }
 
-  CargarClientes(login: Clientes) {
+  CargarClientes(Asesor: string) {
     return this.http.get<Clientes[]>(`${environment.api}/api/cliente/activos/gmonrroy`).toPromise();
   }
 }
