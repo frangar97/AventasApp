@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { SQLService } from 'src/app/Login/Services/sql.service';
 import { Cliente } from '../../model/Cliente';
 import { Coordenada } from '../../model/Coordenada';
 import { PineoService } from '../../services/pineo.service';
@@ -13,14 +14,15 @@ export class PineoPage implements OnInit {
 
   clientes: Cliente[] = [];
 
-  constructor(private pineoService: PineoService, private alertController: AlertController) { }
+  constructor(private pineoService: PineoService, private alertController: AlertController,private sql:SQLService) { }
 
   ngOnInit() {
     this.cargarClientes();
   }
 
   async cargarClientes() {
-    this.clientes = await this.pineoService.obtenerClientes();
+    //this.clientes = await this.pineoService.obtenerClientes();
+    this.clientes = await this.sql.executeQuery("SELECT * FROM CLIENTES",[])
   }
 
   async peticionCoordenada(codigo: string) {
@@ -56,7 +58,7 @@ export class PineoPage implements OnInit {
       };
 
       await this.pineoService.postearCoordenadas(coordenada);
-      const index = this.clientes.findIndex(x => x.Codigo === codigo);
+      const index = this.clientes.findIndex(x => x.CodigoCliente === codigo);
       this.clientes[index].Latitud = position.coords.latitude;
       this.clientes[index].Longitud = position.coords.longitude;
 

@@ -5,7 +5,7 @@
         <li class="list_item" *ngFor="let cliente of clientes">
             <ion-label>{{cliente.Nombre}}</ion-label>
             <ion-button color="primary" *ngIf="cliente.Latitud===null  && cliente.Longitud===null"
-                (click)="peticionCoordenada(cliente.Codigo)">Pin</ion-button>
+                (click)="peticionCoordenada(cliente.CodigoCliente)">Pin</ion-button>
         </li>
     </ul>
 </ion-content>

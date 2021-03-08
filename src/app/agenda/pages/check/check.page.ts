@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SQLService } from 'src/app/Login/Services/sql.service';
 import { Cliente } from '../../model/Cliente';
 import { CheckService } from '../../services/check.service';
 
@@ -11,18 +12,17 @@ export class CheckPage implements OnInit {
 
   clientes: Cliente[] = [];
 
-  constructor(private checkService: CheckService) { }
+  constructor(private sql:SQLService) { }
 
   ngOnInit() {
     this.cargarClientes();
   }
 
   async cargarClientes() {
-    let listaClientes = await this.checkService.obtenerClientes();
-    this.clientes = listaClientes.map(x => ({ Codigo: x.Codigo, Nombre: x.Nombre, checkin: false, checkout: true }));
+    this.clientes = await this.sql.executeQuery("SELECT * FROM CLIENTES",[]);
   }
 
-  checkin(codigo: string) {
+  /*checkin(codigo: string) {
     this.clientes = this.clientes.map(x => {
       if (x.Codigo === codigo) {
         return { Codigo: x.Codigo, Nombre: x.Nombre, checkin: true, checkout: false };
@@ -39,6 +39,6 @@ export class CheckPage implements OnInit {
 
       return { Codigo: x.Codigo, Nombre: x.Nombre, checkin: false, checkout: true };
     });
-  }
+  }*/
 
 }

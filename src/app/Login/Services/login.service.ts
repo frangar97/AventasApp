@@ -15,10 +15,10 @@ export class LoginService {
 
 
   InicioSesion(login: Login) {
-    return this.http.post<{Message:string}>(`${environment.api}/api/authentication`, login).toPromise();
+    return this.http.post<{ Message: string, Data: { Token: string } }>(`${environment.api}/api/authentication`, login).toPromise();
   }
 
-  CargarClientes(Asesor: string) {
-    return this.http.get<Clientes[]>(`${environment.api}/api/cliente/activos/gmonrroy`).toPromise();
+  CargarClientes(Token: string) {
+    return this.http.get<Clientes[]>(`${environment.api}/api/cliente/activos`, { headers: { 'Authorization': `Bearer ${Token}` } }).toPromise();
   }
 }

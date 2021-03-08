@@ -8,14 +8,23 @@ export class SQLService {
 
   constructor(private sqlite: SQLite) {
     this.CreateDataBase();
-   }
+  }
 
-  async CreateDataBase(){
+  async CreateDataBase() {
     this.db = await this.sqlite.create({
       name: 'aventasapp.db',
       location: 'default',
     });
+    this.db.sqlBatch(['CREATE TABLE IF NOT EXISTS Clientes (CodigoCliente varchar(50), Nombre varchar(100), EmpresaId varchar(10), CodigoAsesor varchar(20), Habilitado INTEGER, Latitud NUMERIC, Longitud NUMERIC, PRIMARY KEY(CodigoCliente))']);
+  }
 
-    this.db.sqlBatch(['CREATE TABLE IF NOT EXISTS Clientes (id INTEGER, codigocliente varchar(50), nombre varchar(100), empresaId varchar(10), codigoAsesor varchar(20), habilitado INTEGER, latitud NUMERIC, longitud NUMERIC, PRIMARY KEY(id))']);
+  async executeQuery(query: string, params: []) {
+    let result = await this.db.executeSql(query, params);
+    let data = []
+
+    for (let i = 0; i < result.rows.length; i++) {
+      data.push(result.rows.item(i))
+    }
+    return data;
   }
 }

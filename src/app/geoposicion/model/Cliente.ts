@@ -1,6 +1,10 @@
 export interface Cliente {
-    Codigo: string
-    Nombre: string
-    Longitud: number
-    Latitud: number
+    Id: number,
+    EmpresaId:string, 
+    CodigoCliente :string, 
+    CodigoAsesor :string, 
+    Nombre :string,  
+    Latitud :number, 
+    Longitud :number, 
+    Habilitado: number
 }

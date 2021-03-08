@@ -1,12 +1,11 @@
 export interface Clientes {
-    Id: BigInteger,
+    Id: number,
     EmpresaId:string, 
-    Codigo :string, 
-    Asesor :string, 
+    CodigoCliente :string, 
+    CodigoAsesor :string, 
     Nombre :string,  
-    Telefono :string,  
     Latitud :string, 
     Longitud :string, 
-    Habilitado: BigInteger
+    Habilitado: number
 }
     
