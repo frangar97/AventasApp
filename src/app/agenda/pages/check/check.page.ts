@@ -12,17 +12,17 @@ export class CheckPage implements OnInit {
 
   clientes: Cliente[] = [];
 
-  constructor(private sql:SQLService) { }
+  constructor(private checkService:CheckService) { }
 
   ngOnInit() {
     this.cargarClientes();
   }
 
   async cargarClientes() {
-    this.clientes = await this.sql.executeQuery("SELECT * FROM CLIENTES",[]);
+    this.clientes = await this.checkService.obtenerClientes();
   }
 
-  /*checkin(codigo: string) {
+  checkin(codigo: string) {
     this.clientes = this.clientes.map(x => {
       if (x.Codigo === codigo) {
         return { Codigo: x.Codigo, Nombre: x.Nombre, checkin: true, checkout: false };
@@ -39,6 +39,6 @@ export class CheckPage implements OnInit {
 
       return { Codigo: x.Codigo, Nombre: x.Nombre, checkin: false, checkout: true };
     });
-  }*/
+  }
 
 }

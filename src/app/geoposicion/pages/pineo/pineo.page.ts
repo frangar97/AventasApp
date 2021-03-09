@@ -21,8 +21,8 @@ export class PineoPage implements OnInit {
   }
 
   async cargarClientes() {
-    //this.clientes = await this.pineoService.obtenerClientes();
-    this.clientes = await this.sql.executeQuery("SELECT * FROM CLIENTES",[])
+    this.clientes = await this.pineoService.obtenerClientes();
+    //this.clientes = await this.sql.executeQuery("SELECT * FROM CLIENTES",[])
   }
 
   async peticionCoordenada(codigo: string) {
@@ -58,7 +58,7 @@ export class PineoPage implements OnInit {
       };
 
       await this.pineoService.postearCoordenadas(coordenada);
-      const index = this.clientes.findIndex(x => x.CodigoCliente === codigo);
+      const index = this.clientes.findIndex(x => x.Codigo === codigo);
       this.clientes[index].Latitud = position.coords.latitude;
       this.clientes[index].Longitud = position.coords.longitude;
 

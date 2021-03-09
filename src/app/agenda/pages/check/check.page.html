@@ -4,12 +4,12 @@
     <ul class="list">
         <li class="list_item" *ngFor="let cliente of clientes">
             <ion-label>{{cliente.Nombre}}</ion-label>
-            <!--<div>
+            <div>
                 <ion-button color="primary" [disabled]="cliente.checkin" (click)="checkin(cliente.Codigo)">Check in
                 </ion-button>
                 <ion-button color="secondary" [disabled]="cliente.checkout" (click)="checkout(cliente.Codigo)">Check out
                 </ion-button>
-            </div>-->
+            </div>
         </li>
     </ul>
 </ion-content>
