@@ -14,7 +14,7 @@ export class PineoService {
   constructor(private http: HttpClient) { }
 
   obtenerClientes() {
-    return this.http.get<Cliente[]>(`${environment.api}/api/cliente/activos/gmonrroy`, { headers: { 'Authorization': `Bearer ${token}` } }).toPromise();
+    return this.http.get<Cliente[]>(`${environment.api}/api/cliente/activos`, { headers: { 'Authorization': `Bearer ${token}` } }).toPromise();
   }
 
   postearCoordenadas(coordenada: Coordenada) {
